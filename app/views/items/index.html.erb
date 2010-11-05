@@ -15,7 +15,7 @@
       <td><%= item.price %></td>
       <td><%= item.description %></td>
 			<td><%= item.location %></td>
-			<td><%= item.user.present? ? (current_user == item.user ? "Item escolhido por si." : (current_user.is_admin? ? "Item escohido por #{html_safe(link_to item.user.name, item.user)}": "Item já escolhido")) : "Disponível" %></td>
+			<td><%= raw (item.user.present? ? (current_user == item.user ? "Item escolhido por si." : (current_user.is_admin? ? "Item escohido por #{link_to(h(item.user.name), item.user)}" : "Item já escolhido")) : "Disponível") %></td>
 			<td>
 				<% if current_user.is_admin? %>
 		      <%= link_to "Show", item %> |

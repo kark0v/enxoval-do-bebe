@@ -42,7 +42,9 @@
 							<td><%= item.price %></td>
 							<td><%= item.description %></td>
 							<td><%= item.location %></td>
-							<td><%= link_to "Remover escolha", unchoose_item_path(item), :method => :put %></td>
+							<% if current_user == @user %>
+								<td><%= link_to "Remover escolha", unchoose_item_path(item), :method => :put %></td>
+							<% end %>
 						</tr>
 					<% end %>
 				</tbody>
