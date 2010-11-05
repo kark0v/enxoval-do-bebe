@@ -15,7 +15,7 @@
 <% if current_user.is_admin? %>
 	<p>
 	  <strong>Escolhido por:</strong>
-	  <%= @item.user.name %>
+	  <%= @item.user.present ? (link_to @item.user.name, @item.user) : "Ainda não foi escolhido por ninguém." %>
 	</p>
 <% end %>
 
