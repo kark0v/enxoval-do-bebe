@@ -13,6 +13,7 @@
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
       <% end %>
 			<div style="float:right">
+				<%= link_to "Início", root_path %> |
 				<% if !current_user %>
 					<%= link_to 'log in', login_path %>
 				<% else %>
