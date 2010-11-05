@@ -18,7 +18,7 @@
 					<%= link_to 'log in', login_path %>
 				<% else %>
   				<%= link_to current_user.name, current_user %> |
-					<%= link_to 'Lista de items', items_path %> |
+					<%= link_to 'Lista de prendas', items_path %> |
 					<% if current_user.is_admin? %>
 						<%= link_to "Registar novo utilizador", signup_path %> |
 					<% end %>
