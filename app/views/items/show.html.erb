@@ -1,0 +1,28 @@
+<% title "Item" %>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @item.name %>
+</p>
+<p>
+  <strong>Preço:</strong>
+  <%= @item.price %>
+</p>
+<p>
+  <strong>Descrição:</strong>
+  <%= @item.description %>
+</p>
+<% if current_user.is_admin? %>
+	<p>
+	  <strong>Escolhido por:</strong>
+	  <%= @item.user.name %>
+	</p>
+<% end %>
+
+<p>
+	<% if current_user.is_admin? %>
+	  <%= link_to "Edit", edit_item_path(@item) %> |
+	  <%= link_to "Destroy", @item, :confirm => 'Are you sure?', :method => :delete %> |
+	<% end %>
+  <%= link_to "Ver todos", items_path %>
+</p>

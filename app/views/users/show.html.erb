@@ -1,0 +1,62 @@
+<% title "Utilizador" %>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @user.name %>
+</p>
+<p>
+  <strong>Username:</strong>
+  <%= @user.username %>
+</p>
+<p>
+  <strong>E-mail</strong>
+  <%= @user.email %>
+</p>
+<p>
+  <%= link_to "Edit", edit_user_path(@user) %> 
+	<% if current_user.is_admin? %>
+		|
+	  <%= link_to "Destroy", @user, :confirm => 'Are you sure?', :method => :delete %> |
+	  <%= link_to "Ver todos", users_path %>
+	<% end %>
+</p>
+<% if @user == current_user || current_user.is_admin? %>
+	<div>
+		<h4>Items escolhidos</h4>
+		<% if @user.items.present? %>
+			<table id="users_table">
+				<thead>
+					<tr>
+						<th>Nome</th>
+						<th>Preço</th>
+						<th>Descrição</th>
+						<th>Localização</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% for item in @user.items %>
+						<tr>
+							<td><%= item.name %></td>
+							<td><%= item.price %></td>
+							<td><%= item.description %></td>
+							<td><%= item.location %></td>
+							<td><%= link_to "Remover escolha", unchoose_item_path(item), :method => :put %></td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		<% else %>
+			<p>Não tem items escolhidos.</p>
+		<% end %>
+	</div>
+<% end %>
+
+
+<style type="text/css">
+table#users_table th {
+	width: 150px
+}
+table#users_table td {
+	text-align: center
+}
+</style>

@@ -1,0 +1,44 @@
+<% title "Items" %>
+
+<table id="items_table">
+  <tr>
+    <th>Nome</th>
+    <th>Preço</th>
+    <th>Descrição</th>
+		<th>Localização</th>
+		<th>Estado</th>
+		<th>Opções</th>
+  </tr>
+  <% for item in @items %>
+    <tr>
+      <td><%= item.name %></td>
+      <td><%= item.price %></td>
+      <td><%= item.description %></td>
+			<td><%= item.location %></td>
+			<td><%= item.user.present? ? (current_user == item.user ? "Item escolhido por si." : (current_user.is_admin? ? "Item escohido por #{link_to item.user.name, item.user}": "Item já escolhido")) : "Disponível" %></td>
+			<td>
+				<% if current_user.is_admin? %>
+		      <%= link_to "Show", item %> |
+  		    <%= link_to "Edit", edit_item_path(item) %> |
+    		  <%= link_to "Destroy", item, :confirm => 'Are you sure?', :method => :delete %>
+				<% elsif !item.user.present? %>
+					<%= link_to "Escolher", choose_item_path(item), :method => :put %>
+				<% elsif item.user == current_user %>
+					<%= link_to "Remover escolha", unchoose_item_path(item), :method => :put %>
+	      <% end %>
+			</td>
+    </tr>
+  <% end %>
+</table>
+<% if current_user.is_admin? %>
+	<p><%= link_to "Novo Item", new_item_path %></p>
+<% end %>
+
+<style type="text/css">
+table#items_table th {
+	width: 150px
+}
+table#items_table td {
+	text-align: center
+}
+</style>

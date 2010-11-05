@@ -1,0 +1,11 @@
+one:
+  name: MyString
+  price: MyString
+  user_id: 1
+  description: MyText
+
+two:
+  name: MyString
+  price: MyString
+  user_id: 1
+  description: MyText

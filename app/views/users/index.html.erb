@@ -1,0 +1,38 @@
+<% title "Utilizadores" %>
+
+<table id="users_table">
+  <tr>
+    <th>Nome</th>
+    <th>Username</th>
+    <th>E-mail</th>
+		<th>Número de items escolhidos</th>
+		<th>Opções</th>
+  </tr>
+  <% for user in @users %>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= user.username %></td>
+      <td><%= user.email %></td>
+			<td><%= user.items.count %></td>
+			<td>
+				<% if current_user.is_admin? %>
+		      <%= link_to "Show", user %> |
+  		    <%= link_to "Edit", edit_user_path(user) %> |
+    		  <%= link_to "Destroy", user, :confirm => 'Are you sure?', :method => :delete %>
+	      <% end %>
+			</td>
+    </tr>
+  <% end %>
+</table>
+<% if current_user.is_admin? %>
+	<p><%= link_to "Novo utilizador", new_user_path %></p>
+<% end %>
+
+<style type="text/css">
+table#users_table th {
+	width: 150px
+}
+table#users_table td {
+	text-align: center
+}
+</style>
