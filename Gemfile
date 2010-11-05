@@ -31,7 +31,6 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 	gem "bcrypt-ruby", :require => "bcrypt"
 
 	group :development, :test do
-		gem 'ruby-debug19'
 		gem 'heroku'
 		gem 'mocha'
 		gem 'nifty-generators'
