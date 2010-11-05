@@ -24,7 +24,7 @@
 </p>
 <% if @user == current_user || current_user.is_admin? %>
 	<div>
-		<h4>Items escolhidos</h4>
+		<h4>Prendas escolhidos</h4>
 		<% if @user.items.present? %>
 			<table id="users_table">
 				<thead>
@@ -50,7 +50,7 @@
 				</tbody>
 			</table>
 		<% else %>
-			<p>Não tem items escolhidos.</p>
+			<p>Não escolheu nenhuma prenda..</p>
 		<% end %>
 	</div>
 <% end %>
