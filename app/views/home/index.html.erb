@@ -1,4 +1,4 @@
-<% title "Lista para o enchoval do Bebé da Alice e do Filipe" %>
+<% title "Lista para o enxoval do Bebé da Alice e do Filipe" %>
 
 <p>Olá Familia e Amigos, <br />
  Aproxima-se a chegada de um novo elemento da familia. </p>
@@ -8,4 +8,8 @@
 <p>Beijinhos,<br />
  Filipe, Alice e Bebé!</p>
 
-<p><%= link_to "Lista de items", items_path %></p>
+ <% if current_user %>
+   <p><%= link_to "Lista de items", items_path %></p>
+ <% else %>
+   <p>Para ver a lista de items por favor faça login através do link no canto superior direito.</p>
+ <% end %>
