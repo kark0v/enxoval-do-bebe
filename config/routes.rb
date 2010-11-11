@@ -1,4 +1,4 @@
-Enchoval::Application.routes.draw do
+Enxoval_do_bebe::Application.routes.draw do
   get "home/index"
 
   resources :items do

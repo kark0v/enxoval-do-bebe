@@ -1,6 +1,6 @@
 # Be sure to restart your server when you modify this file.
 
-Enchoval::Application.config.session_store :cookie_store, :key => '_enchoval_session'
+Enxoval_do_bebe::Application.config.session_store :cookie_store, :key => '_enchoval_session'
 
 # Use the database for sessions instead of the cookie-based default,
 # which shouldn't be used to store highly confidential information

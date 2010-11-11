@@ -2,4 +2,4 @@
 require File.expand_path('../application', __FILE__)
 
 # Initialize the rails application
-Enchoval::Application.initialize!
+Enxoval_do_bebe::Application.initialize!
