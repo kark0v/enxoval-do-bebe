@@ -4,4 +4,4 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-Enchoval::Application.load_tasks
+Enxoval_do_bebe::Application.load_tasks
