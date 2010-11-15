@@ -1,5 +1,5 @@
 <% title "Escolher uma prenda" %>
-<%= form_for @item, make_choice_item_path(@item) do |f| %>
+<%= form_for @item do |f| %>
 	<p>
 		<strong>Nome da prenda</strong>
 		<%= @item.name %>

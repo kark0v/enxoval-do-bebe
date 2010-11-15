@@ -28,8 +28,8 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     if @item.update_attributes(params[:item])
-      flash[:notice] = "Successfully updated item."
-      redirect_to @item
+      flash[:notice] = (params[:item][:user_name].present? ? "Prenda escolhida com sucesso" : "Successfully updated item.")
+      redirect_to items_path
     else
       render :action => 'edit'
     end

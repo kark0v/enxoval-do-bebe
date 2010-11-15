@@ -25,7 +25,7 @@
 					<%= link_to "Remover escolha", unchoose_item_path(item), :method => :put %>
 					<% end %>
 				<% elsif !item.user_name.present? %>
-					<%= link_to "Escolher", choose_item_path(item), :method => :put %>
+					<%= link_to "Escolher", choose_item_path(item) %>
 	      <% end %>
 			</td>
     </tr>

@@ -3,8 +3,9 @@ Enxoval_do_bebe::Application.routes.draw do
 
   resources :items do
 		 member do
-			put :choose
+			get :choose
 			put :unchoose
+			post :make_choice
 		 end
 	end
 
