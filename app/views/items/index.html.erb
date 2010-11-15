@@ -15,22 +15,23 @@
       <td><%= item.price %></td>
       <td><%= item.description %></td>
 			<td><%= item.location %></td>
-			<td><%= raw (item.user.present? ? (current_user == item.user ? "Prenda escolhida por si." : (current_user.is_admin? ? "Prenda escohido por #{link_to(h(item.user.name), item.user)}" : "Prenda já escolhida")) : "Disponível") %></td>
+			<td><%= raw (item.user_name.present? ? ( "Prenda escohido por #{h(item.user_name)}") : "Disponível") %></td>
 			<td>
-				<% if current_user.is_admin? %>
+				<% if current_user && rurrent_user.is_admin? %>
 		      <%= link_to "Show", item %> |
   		    <%= link_to "Edit", edit_item_path(item) %> |
     		  <%= link_to "Destroy", item, :confirm => 'Are you sure?', :method => :delete %>
-				<% elsif !item.user.present? %>
-					<%= link_to "Escolher", choose_item_path(item), :method => :put %>
-				<% elsif item.user == current_user %>
+					<% if item.user_name.present? %>
 					<%= link_to "Remover escolha", unchoose_item_path(item), :method => :put %>
+					<% end %>
+				<% elsif !item.user_name.present? %>
+					<%= link_to "Escolher", choose_item_path(item), :method => :put %>
 	      <% end %>
 			</td>
     </tr>
   <% end %>
 </table>
-<% if current_user.is_admin? %>
+<% if current_user && current_user.is_admin? %>
 	<p><%= link_to "Nova Prenda", new_item_path %></p>
 <% end %>
 

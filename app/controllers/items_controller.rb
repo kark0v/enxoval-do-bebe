@@ -44,18 +44,23 @@ class ItemsController < ApplicationController
 
 	def choose
 		@item = Item.find(params[:id])
-		@item.user = current_user
-		if @item.save
-			flash[:notice] = "Item escolhido com sucesso."
-		else
-			flash[:error] = "Ocorreu um erro na escolha do item."
-		end
-		redirect_to items_url
 	end
-	
+
+	def make_choice
+		@item = Item.find(params[:id])
+		@item.user_name = params[:name]
+		if @item.save
+			flash[:notice] = "Prenda escolhida com sucesso"
+			redirect_to items_path
+		else
+			flash[:error] = "Houve um problema a escolher a prenda, por favor tente outra vez."
+			redirect_to choose_item_path(@item)
+		end
+	end	
+
 	def unchoose
 		@item = Item.find(params[:id])
-		@item.user = nil
+		@item.user_name = ""
 		if @item.save
 			flash[:notice] = "Escolha removida com sucesso."
 		else

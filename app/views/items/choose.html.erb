@@ -1,0 +1,15 @@
+<% title "Escolher uma prenda" %>
+<%= form_for @item, make_choice_item_path(@item) do |f| %>
+	<p>
+		<strong>Nome da prenda</strong>
+		<%= @item.name %>
+	<p>
+	<p>
+		<%= f.label :user_name, "O seu nome"%> <br />
+		<%= f.text_field :user_name %>
+	</p>
+	<p>
+		<%= f.submit "Escoher" %>
+	</p>
+<% end %>
+<p><%= link_to "Lista de prendas", items_path %></p>
