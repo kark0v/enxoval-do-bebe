@@ -17,7 +17,7 @@
 			<td><%= item.location %></td>
 			<td><%= raw (item.user_name.present? ? ( "Prenda escohido por #{h(item.user_name)}") : "Disponível") %></td>
 			<td>
-				<% if current_user && rurrent_user.is_admin? %>
+				<% if current_user && current_user.is_admin? %>
 		      <%= link_to "Show", item %> |
   		    <%= link_to "Edit", edit_item_path(item) %> |
     		  <%= link_to "Destroy", item, :confirm => 'Are you sure?', :method => :delete %>
